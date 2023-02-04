@@ -25,6 +25,9 @@ class Index extends Controller
             ->editColumn('created_at', function(Post $post) {
                 return $post->created_at->format('d-m-Y');
             })
+            ->addColumn('image', function ($row) {
+                return"<img src='/imgs/no-image.jpg' class='datatable-image'>";
+            })
             ->addColumn('actions', function ($row) {
                 $html = "<div class='d-inline-flex'>";
                 $html .= "<a href=".route('posts.update', $row->id)." class='btn btn-outline-success btn-sm me-1'><i class='bi bi-pencil-fill'></i></a>";
@@ -32,7 +35,7 @@ class Index extends Controller
                 $html .= "</div>";
                 return $html;
             })
-            ->rawColumns(['actions'])
+            ->rawColumns(['image', 'actions'])
             ->toJson();
 
     }

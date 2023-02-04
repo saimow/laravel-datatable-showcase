@@ -10,6 +10,7 @@
         <thead>
             <tr>
             <th scope="col">#</th>
+            <th scope="col">Image</th>
             <th scope="col">Title</th>
             <th scope="col">Content</th>
             <th scope="col">Created_at</th>
@@ -54,7 +55,7 @@
 </script>
 <script>
     let datatable = $('#datatable').DataTable({
-        "order": [3, 'desc'],
+        "order": [4, 'desc'],
         "processing": true,
         "language": {
             processing: '<div class="spinner-border text-primary text-lg" style="width: 2.6rem; height: 2.6rem;" role="status"><span class="visually-hidden">Loading...</span></div>'
@@ -63,10 +64,11 @@
         "searchDelay":1500,
         "ajax": "{{ route('posts.data') }}",
         "columnDefs": [
-            { target:[0,3,4], className: 'align-middle' },
+            { target:[0,1,4,5], className: 'align-middle' },
         ],
         "columns": [
             { data: 'id', name: 'id', searchable: true },
+            { data: 'image', name: 'image', searchable: false, orderable: false },
             { data: 'title', name: 'title', searchable: true },
             { data: 'content', name: 'content', searchable: true },
             { data: 'created_at', name: 'created_at', searchable: false },
