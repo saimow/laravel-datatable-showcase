@@ -1,0 +1,22 @@
+input, textarea, button, a:focus{
+    box-shadow: none !important;
+}
+
+.datatable-image{
+    object-fit: cover;
+    object-position: center;
+    width: 60px;
+    height: 50px;
+}
+
+/* datatables styling */
+
+#datatable_filter, #dataTables_length{
+    margin-bottom: 0.3rem;
+}
+div.dataTables_processing div{
+    margin-top: 1rem;
+}
+div.dataTables_processing div:nth-child(2) {
+    display: none;
+}
